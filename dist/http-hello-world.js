@@ -26,18 +26,3 @@ function handle(req, resp) {
 export const incomingHandler = {
     handle,
 };
-// const resp= calculatesum(1,2)
-// const counterMachine = createMachine({
-//   id:"counter",
-//   context: {
-//     count: 0
-//   },
-//   on: {
-//     inc: {
-//       actions: ({ context }) => context.count + 1
-//     },
-//     dec: {
-//       actions: ({ context }) => context.count - 1
-//     }
-//   }
-// })

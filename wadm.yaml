@@ -4,7 +4,7 @@ kind: Application
 metadata:
   name: typescript-hello-world
   annotations:
-    version: v0.0.1
+    version: v0.0.3
     description: "Demo of Typescript HTTP hello world server"
 spec:
   components:
@@ -12,7 +12,24 @@ spec:
     - name: http-component
       type: component
       properties:
-        image: file://./build/http_hello_world_s.wasm
+        image: file://./dist/http-hello-world.wasm
+      traits:
+        # Govern the spread/scheduling of the component
+        - type: spreadscaler
+          properties:
+            replicas: 1
+        - type: link
+          properties:
+            target: calc-component
+            namespace: wasmcloud
+            package: hello
+            interfaces: [calculator]
+
+    # (Component) A test component that returns a string for any given HTTP request
+    - name: calc-component
+      type: component
+      properties:
+        image: file://./dist/calc.wasm
       traits:
         # Govern the spread/scheduling of the component
         - type: spreadscaler

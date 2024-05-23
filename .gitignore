@@ -4,3 +4,4 @@
 
 # wash build output
 /build/*
+/dist/*

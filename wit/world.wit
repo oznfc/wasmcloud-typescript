@@ -1,9 +1,15 @@
 package wasmcloud:hello;
 
-world hello {
-  export wasi:http/incoming-handler@0.2.0;
-  import example:calculator/calcinterface;
-
+interface calculator {
+  calculatesum: func(x: u32, y: u32) -> u32;
 }
 
+world calc {
+  export calculator;
+}
 
+world hello {
+  import calculator;
+
+  export wasi:http/incoming-handler@0.2.0;
+}

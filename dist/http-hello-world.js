@@ -1,6 +1,6 @@
 import { ResponseOutparam, OutgoingBody, OutgoingResponse, Fields } from "wasi:http/types@0.2.0";
 //@ts-ignore
-import { calculatesum } from "example:calculator/calcinterface";
+import { calculatesum } from "wasmcloud:hello/calculator";
 function handle(req, resp) {
     // Start building an outgoing response
     const outgoingResponse = new OutgoingResponse(new Fields());

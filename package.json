@@ -5,9 +5,10 @@
   "main": "http-hello-world.js",
   "scripts": {
     "build:tsc": "tsc",
-    "build:js": "jco componentize -w wit -o dist/http-hello-world.wasm dist/http-hello-world.js",
-    "build:component": "wash build --sign-only --config-path wasmcloud.toml",
-    "build": "npm run build:tsc && npm run build:js && npm run build:component",
+    "build:js1": "jco componentize -w wit -o dist/http-hello-world.wasm dist/http-hello-world.js -n hello",
+    "build:js2": "jco componentize -w wit -o dist/calc.wasm dist/src/index.js -n calc",
+    "build:sign-component": "wash build --sign-only --config-path wasmcloud.toml",
+    "build": "npm run build:tsc && npm run build:js1 && npm run build:js2",
     "component:start": "wash start component file://$(realpath build/http_hello_world_s.wasm) --auction-timeout-ms 10000 --timeout-ms 10000",
     "component:stop": "wash stop component typescript-hello-world",
     "wadm:start": "wash app deploy wadm.yaml",

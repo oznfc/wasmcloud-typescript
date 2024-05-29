@@ -13,7 +13,13 @@
       ],
       "wasi:logging/logging": [
         "dist/src/index.d.ts",
-      ]
+      ],
+      "wasi:keyvalue/store@0.2.0-draft": [
+        "dist/src/index.d.ts",
+      ],
+      "wasi:keyvalue/atomics@0.2.0-draft": [
+        "dist/src/index.d.ts",
+      ],
     },
     "skipLibCheck": true
   },
